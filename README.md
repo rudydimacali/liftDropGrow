@@ -1,5 +1,6 @@
 # liftDropGrow
-> Workout tracking webapp built on React &amp; PostgreSQL. Built as a passion project due to my obsession with weightlifting!
+> Workout tracking webapp built on React &amp; PostgreSQL.
+> Built as a passion project due to my obsession with weightlifting!
 
 ## Table of Contents
 
