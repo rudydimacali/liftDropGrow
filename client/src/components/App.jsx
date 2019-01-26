@@ -49,7 +49,11 @@ class App extends React.Component {
       url: '/api/workouts',
       data: { date: this.state.dateSelected },
       success: (data) => {
-        this.setState({ workouts: data.rows });
+        this.setState({
+          workouts: data.rows.sort((a, b) => {
+            return a.id - b.id;
+          })
+        });
       },
       error: (err) => {
         console.log(err);

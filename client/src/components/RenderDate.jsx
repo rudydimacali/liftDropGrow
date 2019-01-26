@@ -16,12 +16,25 @@ const RenderDate = ({ workoutArray }) => {
         <th>Weight</th>
         <th>Reps</th>
       </tr>
-      {workoutArray.map((workout) => {
-        return (<tr>
-          <td>{upperCase(workout.name)}</td>
-          <td>{workout.weight}</td>
-          <td>{workout.reps}</td>
-        </tr>);
+      {workoutArray.map((workout, index) => {
+        if (index > 0) {
+          console.log(workout.name === workoutArray[index - 1].name);
+          if (workout.name === workoutArray[index - 1].name) {
+            return (
+              <tr>
+                <td></td>
+                <td>{workout.weight}</td>
+                <td>{workout.reps}</td>
+              </tr>
+            );
+          }
+        }
+        return (
+          <tr>
+            <td>{upperCase(workout.name)}</td>
+            <td>{workout.weight}</td>
+            <td>{workout.reps}</td>
+          </tr>);
       })}
     </table>
   );

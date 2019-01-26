@@ -23,6 +23,7 @@
   "homepage": "https://github.com/rudydimacali/liftDropGrow#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.2.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
     "moment": "^2.24.0",
