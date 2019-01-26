@@ -26,9 +26,10 @@ const getWorkoutName = (id, cb) => {
 };
 
 const createWorkoutName = (name, cb) => {
-  client.query(`INSERT INTO workouts (name) VALUES ('${name.toLowerCase}')`, (err, success) => {
+
+  client.query(`INSERT INTO workouts (name) VALUES ('${name}')`, (err, success) => {
     if (err) {
-      cb(err);
+      console.log(err);
     } else {
       cb(null, success);
     }
