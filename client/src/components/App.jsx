@@ -29,7 +29,13 @@ class App extends React.Component {
       method: 'GET',
       url: '/api/dates',
       success: (data) => {
-        this.setState({ dateOptions: data.rows });
+        let dateOptions = [];
+        data.rows.forEach((dateObj) => {
+          if (!dateOptions.includes(dateObj.date)) {
+            dateOptions.push(dateObj.date);
+          }
+        })
+        this.setState({ dateOptions: dateOptions });
       },
       error: (err) => {
         console.log(err);
