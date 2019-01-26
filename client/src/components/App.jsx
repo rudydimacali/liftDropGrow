@@ -29,7 +29,13 @@ class App extends React.Component {
       method: 'GET',
       url: '/api/dates',
       success: (data) => {
-        this.setState({ dateOptions: data.rows });
+        let dateOptions = [];
+        data.rows.forEach((dateObj) => {
+          if (!dateOptions.includes(dateObj.date)) {
+            dateOptions.push(dateObj.date);
+          }
+        })
+        this.setState({ dateOptions: dateOptions });
       },
       error: (err) => {
         console.log(err);
@@ -43,7 +49,11 @@ class App extends React.Component {
       url: '/api/workouts',
       data: { date: this.state.dateSelected },
       success: (data) => {
-        this.setState({ workouts: data.rows });
+        this.setState({
+          workouts: data.rows.sort((a, b) => {
+            return a.id - b.id;
+          })
+        });
       },
       error: (err) => {
         console.log(err);

@@ -11,8 +11,8 @@ export default class AddWorkSet extends React.Component {
       workoutNames: [],
       workoutName: '',
       workoutId: 1,
-      weight: 100,
-      reps: 10,
+      weight: 5,
+      reps: 1,
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
