@@ -52,12 +52,34 @@ const createWorkoutRecord = (args, cb) => {
     } else {
       cb(null, success);
     }
-  })
-}
+  });
+};
+
+const findWorkoutNames = (cb) => {
+  client.query(`SELECT * FROM workouts`, (err, res) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, res);
+    }
+  });
+};
+
+const findDates = (cb) => {
+  client.query(`SELECT date FROM main`, (err, res) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, res);
+    }
+  });
+};
 
 module.exports.findWorkouts = findWorkouts;
 module.exports.getWorkoutId = getWorkoutId;
 module.exports.getWorkoutName = getWorkoutName;
 module.exports.createWorkoutName = createWorkoutName;
 module.exports.createWorkoutRecord = createWorkoutRecord;
+module.exports.findWorkoutNames = findWorkoutNames;
+module.exports.findDates = findDates;
 
