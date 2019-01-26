@@ -1,6 +1,7 @@
 import React from 'react';
 import AddWorkSet from './AddWorkSet.jsx';
 import RenderDate from './RenderDate.jsx';
+import DateOptions from './DateOptions.jsx';
 const moment = require('moment');
 const $ = require('jquery');
 
@@ -10,14 +11,30 @@ class App extends React.Component {
     this.state = {
       dateSelected: moment().format('MM-DD-YYYY'),
       workouts: [],
+      dateOptions: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getWorkouts = this.getWorkouts.bind(this);
+    this.getDates = this.getDates.bind(this);
   }
 
   componentDidMount() {
+    this.getDates();
     this.getWorkouts(this.state.dateSelected);
+  }
+
+  getDates() {
+    $.ajax({
+      method: 'GET',
+      url: '/api/dates',
+      success: (data) => {
+        this.setState({ dateOptions: data.rows });
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
   getWorkouts() {
@@ -35,9 +52,15 @@ class App extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({
-      [e.target.id]: e.target.value
-    });
+    if (e.target.id === 'dateSelected') {
+      this.setState({
+        [e.target.id]: e.target.value
+      }, this.getWorkouts);
+    } else {
+      this.setState({
+        [e.target.id]: e.target.value
+      });
+    }
   }
 
   handleSubmit(e) {
@@ -47,6 +70,9 @@ class App extends React.Component {
     if (this.state.dateSelected === moment().format('MM-DD-YYYY')) {
       return (
         <div>
+          <select id='dateSelected' onChange={this.handleChange}>
+            <DateOptions dateArray={this.state.dateOptions} />
+          </select>
           <RenderDate workoutArray={this.state.workouts} />
           <AddWorkSet getWorkouts={this.getWorkouts} />
         </div>
@@ -54,6 +80,9 @@ class App extends React.Component {
     } else {
       return (
         <div>
+          <select id='dateSelected' onChange={this.handleChange}>
+            <DateOptions dateArray={this.state.dateOptions} />
+          </select>
           <RenderDate workoutArray={this.state.workouts} />
         </div>
       )
