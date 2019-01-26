@@ -26,7 +26,6 @@ const getWorkoutName = (id, cb) => {
 };
 
 const createWorkoutName = (name, cb) => {
-
   client.query(`INSERT INTO workouts (name) VALUES ('${name}')`, (err, success) => {
     if (err) {
       console.log(err);
@@ -37,8 +36,10 @@ const createWorkoutName = (name, cb) => {
 };
 
 const findWorkouts = (date, cb) => {
-  client.query(`SELECT main.*, workouts.name FROM main INNER JOIN workouts ON main.workoutid = workouts.id WHERE WHERE date='${date}'`, (err, pgres) => {
+  console.log(date);
+  client.query(`SELECT main.*, workouts.name FROM main INNER JOIN workouts ON main.workoutid = workouts.id WHERE date='${date}'`, (err, pgres) => {
     if (err) {
+      console.log(err);
       cb(err);
     } else {
       cb(null, pgres);
