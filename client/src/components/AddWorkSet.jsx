@@ -55,7 +55,7 @@ export default class AddWorkSet extends React.Component {
         reps: this.state.reps
       },
       success: () => {
-        console.log('Success adding workout!');
+        this.props.getWorkouts();
       },
       error: (err) => {
         console.log(err);
@@ -82,7 +82,7 @@ export default class AddWorkSet extends React.Component {
     return (
       <div>
         <form id='addWorkSetForm'>
-          <select id='selectedWorkout' onChange={this.handleChange}>
+          <select id='workoutId' onChange={this.handleChange}>
             {this.state.workoutNames.map((workout) => {
               return <option key={workout.id} value={workout.id}>{this.upperCase(workout.name)}</option>
             })}

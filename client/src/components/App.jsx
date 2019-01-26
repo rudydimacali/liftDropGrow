@@ -47,13 +47,14 @@ class App extends React.Component {
     if (this.state.dateSelected === moment().format('MM-DD-YYYY')) {
       return (
         <div>
-          {/* <RenderDate /> */}
-          <AddWorkSet />
+          <RenderDate workoutArray={this.state.workouts} />
+          <AddWorkSet getWorkouts={this.getWorkouts} />
         </div>
       )
     } else {
       return (
         <div>
+          <RenderDate workoutArray={this.state.workouts} />
         </div>
       )
     }
