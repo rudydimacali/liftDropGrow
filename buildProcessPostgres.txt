@@ -6,13 +6,13 @@ psql -U postgres
 ======================================== CREATE TABLE ======================================== 
 CREATE TABLE workouts(
   id SERIAL PRIMARY KEY,
-  name varchar(40) NOT NULL 
+  name varchar(40) NOT NULL UNIQUE
 );
 
 CREATE TABLE main(
   id SERIAL PRIMARY KEY,
-  date date NOT NULL,
-  workoutId int REFERENCES workouts(id),
+  date varchar(10) NOT NULL,
+  workoutid int REFERENCES workouts(id),
   weight int NOT NULL,
   reps int NOT NULL
 );
