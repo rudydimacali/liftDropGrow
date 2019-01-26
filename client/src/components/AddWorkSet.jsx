@@ -82,22 +82,32 @@ export default class AddWorkSet extends React.Component {
     return (
       <div>
         <form id='addWorkSetForm'>
-          <select id='workoutId' onChange={this.handleChange}>
-            {this.state.workoutNames.map((workout) => {
-              return <option key={workout.id} value={workout.id}>{this.upperCase(workout.name)}</option>
-            })}
+          <legend>Add Set</legend>
+          <div class="form-group">
+            <label for="workoutId">Lift</label>
+            <select class="form-control" id='workoutId' onChange={this.handleChange}>
+              {this.state.workoutNames.map((workout) => {
+                return <option key={workout.id} value={workout.id}>{this.upperCase(workout.name)}</option>
+              })}
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight</label>
+            <select class="form-control" id='weight' onChange={this.handleChange}>
+              {this.state.weightOptions.map((weight) => {
+                return <option key={weight} value={weight}>{weight} lbs</option>
+              })};
           </select>
-          <select id='weight' onChange={this.handleChange}>
-            {this.state.weightOptions.map((weight) => {
-              return <option key={weight} value={weight}>{weight} lbs</option>
-            })};
-          </select>
-          <select id='reps' onChange={this.handleChange}>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((repCount) => {
-              return <option key={repCount} value={repCount}>{repCount} Reps</option>
-            })}
-          </select>
-          <button onClick={this.handleClick}>Add Workout Set</button>
+          </div>
+          <div class="form-group">
+            <label for="reps">Reps</label>
+            <select class="form-control" id='reps' onChange={this.handleChange}>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map((repCount) => {
+                return <option key={repCount} value={repCount}>{repCount} Reps</option>
+              })}
+            </select>
+            <button class="btn btn-primary" onClick={this.handleClick}>Add</button>
+          </div>
         </form>
         <AddWorkout getWorkoutNames={this.getWorkoutNames} />
       </div>

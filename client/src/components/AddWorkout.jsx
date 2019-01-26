@@ -35,8 +35,12 @@ export default class AddWorkout extends React.Component {
   render() {
     return (
       <form id='addWorkoutForm'>
-        <input onChange={this.handleChange}></input>
-        <button onClick={this.handleClick}>Add Workout</button>
+        <legend>Add Lift</legend>
+        <div class="form-group">
+          <label for="liftName">Exercise</label>
+          <input id="liftName" class="form-control" onChange={this.handleChange}></input>
+          <button class="btn btn-primary" onClick={this.handleClick}>Add</button>
+        </div>
       </form>
     )
   }

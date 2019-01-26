@@ -80,9 +80,14 @@ class App extends React.Component {
     if (this.state.dateSelected === moment().format('MM-DD-YYYY')) {
       return (
         <div>
-          <select id='dateSelected' onChange={this.handleChange}>
-            <DateOptions dateArray={this.state.dateOptions} />
-          </select>
+          <form>
+            <div class="form-group">
+              <label for="dateSelected">Date</label>
+              <select class="form-control" id='dateSelected' onChange={this.handleChange}>
+                <DateOptions dateArray={this.state.dateOptions} />
+              </select>
+            </div>
+          </form>
           <RenderDate workoutArray={this.state.workouts} />
           <AddWorkSet getWorkouts={this.getWorkouts} />
         </div>
@@ -90,9 +95,14 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <select id='dateSelected' onChange={this.handleChange}>
-            <DateOptions dateArray={this.state.dateOptions} />
-          </select>
+          <form>
+            <div class="form-group">
+              <label for="dateSelected">Date</label>
+              <select class="form-control" id='dateSelected' onChange={this.handleChange}>
+                <DateOptions dateArray={this.state.dateOptions} />
+              </select>
+            </div>
+          </form>
           <RenderDate workoutArray={this.state.workouts} />
         </div>
       )

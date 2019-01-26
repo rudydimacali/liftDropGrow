@@ -10,11 +10,11 @@ const upperCase = (workout) => {
 
 const RenderDate = ({ workoutArray }) => {
   return (
-    <table id='renderDate'>
-      <tr>
-        <th>Workout</th>
-        <th>Weight</th>
-        <th>Reps</th>
+    <table class="table table-hover" id='renderDate'>
+      <tr class="table-active">
+        <th scope="col">Workout</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Reps</th>
       </tr>
       {workoutArray.map((workout, index) => {
         if (index > 0) {
