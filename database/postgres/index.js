@@ -48,6 +48,7 @@ const findWorkouts = (date, cb) => {
 };
 
 const createWorkoutRecord = (args, cb) => {
+  console.log(args);
   client.query(`INSERT INTO main (date, workoutid, weight, reps) VALUES ('${args.date}', ${args.workoutid}, ${args.weight}, ${args.reps})`, (err, success) => {
     if (err) {
       cb(err);

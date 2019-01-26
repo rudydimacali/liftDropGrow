@@ -41,6 +41,7 @@ app.get('/api/workouts', (req, res) => {
 });
 
 app.post('/api/workouts', (req, res) => {
+  console.log(req.body);
   createWorkoutRecord(req.body, (err, success) => {
     if (err) {
       res.status(404).send(err);
