@@ -31,7 +31,7 @@ app.post('/api/workoutNames', (req, res) => {
 });
 
 app.get('/api/workouts', (req, res) => {
-  findWorkouts(req.body.date, (err, workouts) => {
+  findWorkouts(req.query.date, (err, workouts) => {
     if (err) {
       res.status(404).send('Error!');
     } else {
