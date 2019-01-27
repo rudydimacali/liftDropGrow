@@ -20,3 +20,36 @@ CREATE TABLE main(
 CREATE INDEX ON main(date);
 
 ======================================== INSERT VALUES ======================================== 
+INSERT INTO workouts(name) VALUES ('Bench Press');
+INSERT INTO workouts(name) VALUES ('Close Grip Bench');
+INSERT INTO workouts(name) VALUES ('Overhead Press');
+INSERT INTO workouts(name) VALUES ('Back Squat');
+INSERT INTO workouts(name) VALUES ('Front Squat');
+INSERT INTO workouts(name) VALUES ('Deadlift');
+INSERT INTO workouts(name) VALUES ('Sumo Deadlift');
+INSERT INTO workouts(name) VALUES ('Bicep Curl');
+INSERT INTO workouts(name) VALUES ('Hammer Curl');
+INSERT INTO workouts(name) VALUES ('Face Pull');
+INSERT INTO workouts(name) VALUES ('Pull Up');
+INSERT INTO workouts(name) VALUES ('Chin Up');
+
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 1, 200, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 1, 205, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 1, 215, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 1, 225, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 2, 100, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 2, 110, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 2, 120, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 2, 145, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 8, 30, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 8, 35, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 8, 40, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 8, 35, 15);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 10, 65, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 10, 75, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 10, 80, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 10, 70, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 11, 190, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 11, 190, 9);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 11, 190, 8);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 11, 190, 7);
