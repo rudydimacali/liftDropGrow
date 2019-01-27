@@ -30,6 +30,7 @@ class App extends React.Component {
       url: '/api/dates',
       success: (data) => {
         let dateOptions = [];
+        dateOptions.push(moment().format('MM-DD-YYYY'));
         data.rows.forEach((dateObj) => {
           if (!dateOptions.includes(dateObj.date)) {
             dateOptions.push(dateObj.date);

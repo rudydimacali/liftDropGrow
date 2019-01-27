@@ -18,6 +18,7 @@ export default class AddWorkout extends React.Component {
       url: '/api/workoutNames',
       data: { name: this.state.workoutName },
       success: () => {
+        document.getElementById('addWorkoutForm').reset();
         this.props.getWorkoutNames();
       },
       error: (err) => {

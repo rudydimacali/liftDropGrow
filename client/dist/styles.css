@@ -1,6 +1,5 @@
 body {
-  margin: 25px;
-  max-width: 75%;
+  padding: 25px;
 }
 
 form, table {
@@ -29,5 +28,5 @@ button {
 }
 
 .form-control, table, form {
-  max-width: 50%;
+  margin: 0 auto;
 }

@@ -77,7 +77,6 @@ export default class AddWorkSet extends React.Component {
     });
   }
 
-
   render() {
     return (
       <div>
