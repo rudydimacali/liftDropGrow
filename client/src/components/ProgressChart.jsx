@@ -22,26 +22,27 @@ export default class ProgressChart extends React.Component {
         months.push(moment().subtract(i, 'months').format('MMMM'));
       };
       this.getWorkoutProgress((data) => {
-        console.log(data);
+        this.getMonthlyMaxes(data, months, (maxes) => {
+          let data = {
+            labels: months,
+            datasets: [
+              {
+                label: "Max",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: maxes
+              }
+            ]
+          };
+          this.setState({
+            chartData: data,
+          });
+        });
       })
-      let data = {
-        labels: months,
-        datasets: [
-          {
-            label: "Max",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55]
-          }
-        ]
-      };
-      this.setState({
-        chartData: data,
-      });
     });
   }
 
@@ -70,6 +71,16 @@ export default class ProgressChart extends React.Component {
         console.log(err);
       }
     });
+  }
+
+  getMonthlyMaxes(workouts, months, cb) {
+    let maxes = [0, 0, 0, 0, 0, 0];
+    workouts.forEach((workout) => {
+      if (maxes[months.indexOf(moment(workout.date, 'MM-DD-YYYY').format('MMMM'))] < workout.weight) {
+        maxes[months.indexOf(moment(workout.date, 'MM-DD-YYYY').format('MMMM'))] = workout.weight;
+      }
+    });
+    cb(maxes);
   }
 
   upperCase(workout) {
