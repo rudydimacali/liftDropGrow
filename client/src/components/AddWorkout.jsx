@@ -37,10 +37,10 @@ export default class AddWorkout extends React.Component {
     return (
       <form id='addWorkoutForm'>
         <legend>Add Lift</legend>
-        <div class="form-group">
-          <label for="liftName">Exercise</label>
-          <input id="liftName" class="form-control" onChange={this.handleChange}></input>
-          <button class="btn btn-primary" onClick={this.handleClick}>Add</button>
+        <div className="form-group">
+          <label htmlFor="liftName">Exercise</label>
+          <input id="liftName" className="form-control" onChange={this.handleChange}></input>
+          <button className="btn btn-primary" onClick={this.handleClick}>Add</button>
         </div>
       </form>
     )

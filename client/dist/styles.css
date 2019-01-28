@@ -9,10 +9,6 @@ form, table {
   box-shadow: 10px 10px 34px 7px rgba(0,0,0,0.16);
 }
 
-td, th {
-  padding: 10px;
-}
-
 div.form-group, legend {
   padding: 15px;
 }
@@ -29,4 +25,8 @@ button {
 
 .form-control, table, form {
   margin: 0 auto;
+}
+
+.navbar-brand {
+  font-size: 24px;
 }

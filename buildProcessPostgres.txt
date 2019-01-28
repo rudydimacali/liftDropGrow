@@ -53,3 +53,24 @@ INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 11, 190, 
 INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 11, 190, 9);
 INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 11, 190, 8);
 INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-25-2019', 11, 190, 7);
+
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 3, 200, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 3, 205, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 3, 215, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 3, 224, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 4, 100, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 4, 110, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 4, 120, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 4, 145, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 7, 30, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 7, 35, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 7, 40, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 7, 35, 15);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 6, 65, 6);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 6, 75, 6);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 6, 80, 6);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 6, 70, 6);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 9, 190, 10);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 9, 190, 9);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 9, 190, 8);
+INSERT INTO main (date, workoutid, weight, reps) VALUES ('01-24-2019', 9, 190, 7);
