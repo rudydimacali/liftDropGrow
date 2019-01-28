@@ -92,25 +92,31 @@ export default class ProgressChart extends React.Component {
   }
 
   handleChange(e) {
-
-    let data = {
-      labels: this.state.chartData.labels,
-      datasets: [
-        {
-          label: "Max",
-          fillColor: "rgba(220,220,220,0.2)",
-          strokeColor: "rgba(220,220,220,1)",
-          pointColor: "rgba(220,220,220,1)",
-          pointStrokeColor: "#fff",
-          pointHighlightFill: "#fff",
-          pointHighlightStroke: "rgba(220,220,220,1)",
-          data: []
-        }
-      ]
-    };
     this.setState({
-      [e.target.id]: e.target.value,
-      // chartData: data
+      [e.target.id]: e.target.value
+    }, () => {
+      this.getWorkoutProgress((data) => {
+        this.getMonthlyMaxes(data, this.state.chartData.labels, (maxes) => {
+          let data = {
+            labels: this.state.chartData.labels,
+            datasets: [
+              {
+                label: "Max",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: maxes
+              }
+            ]
+          };
+          this.setState({
+            chartData: data,
+          });
+        });
+      });
     });
   }
 
@@ -140,7 +146,7 @@ export default class ProgressChart extends React.Component {
             }} width="600" height="250" responsive="true" redraw />
           </div>
         </form>
-      </div>
+      </div >
     )
   }
 }
