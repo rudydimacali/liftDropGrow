@@ -8,12 +8,11 @@ export default class ProgressChart extends React.Component {
     super(props);
     this.state = {
       workoutNames: [],
-      chartData: {},
-
+      chartData: {}
     };
-    this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.getWorkoutNames = this.getWorkoutNames.bind(this);
+    this.getWorkoutProgress = this.getWorkoutProgress.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +21,9 @@ export default class ProgressChart extends React.Component {
       for (let i = 5; i >= 0; i--) {
         months.push(moment().subtract(i, 'months').format('MMMM'));
       };
+      this.getWorkoutProgress((data) => {
+        console.log(data);
+      })
       let data = {
         labels: months,
         datasets: [
@@ -38,7 +40,7 @@ export default class ProgressChart extends React.Component {
         ]
       };
       this.setState({
-        chartData: data
+        chartData: data,
       });
     });
   }
@@ -48,7 +50,7 @@ export default class ProgressChart extends React.Component {
       method: 'GET',
       url: '/api/workoutNames',
       success: (data) => {
-        this.setState({ workoutNames: data.rows }, cb);
+        this.setState({ workoutNames: data.rows, workoutId: data.rows[0].id }, cb);
       },
       error: (err) => {
         console.log(err);
@@ -56,19 +58,13 @@ export default class ProgressChart extends React.Component {
     });
   }
 
-  handleClick(e) {
-    e.preventDefault();
+  getWorkoutProgress(cb) {
     $.ajax({
-      method: 'POST',
-      url: '/api/workouts',
-      data: {
-        date: moment().format('MM-DD-YYYY'),
-        workoutid: this.state.workoutId,
-        weight: this.state.weight,
-        reps: this.state.reps
-      },
-      success: () => {
-        this.props.getWorkouts();
+      method: 'GET',
+      url: '/api/progression',
+      data: { id: this.state.workoutId },
+      success: (data) => {
+        cb(data.rows);
       },
       error: (err) => {
         console.log(err);
