@@ -139,11 +139,13 @@ export default class ProgressChart extends React.Component {
               scales: {
                 yAxes: [{
                   ticks: {
-                    beginAtZero: true
+                    beginAtZero: false
                   }
                 }]
-              }
-            }} width="600" height="250" responsive="true" redraw />
+              },
+              responsive: true,
+              maintainAspectRatio: false
+            }} width="600" height="250" redraw />
           </div>
         </form>
       </div >
