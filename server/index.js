@@ -51,6 +51,10 @@ app.post('/api/workouts', (req, res) => {
   });
 });
 
+app.get('/api/progression', (req, res) => {
+
+})
+
 app.get('/api/dates', (req, res) => {
   findDates((err, dates) => {
     if (err) {

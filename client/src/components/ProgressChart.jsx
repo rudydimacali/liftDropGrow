@@ -85,19 +85,25 @@ export default class ProgressChart extends React.Component {
   }
 
   handleChange(e) {
+
     let data = {
-      label: this.state.workoutNames[e.target.value - 1].name,
-      fillColor: "rgba(220,220,220,0.2)",
-      strokeColor: "rgba(220,220,220,1)",
-      pointColor: "rgba(220,220,220,1)",
-      pointStrokeColor: "#fff",
-      pointHighlightFill: "#fff",
-      pointHighlightStroke: "rgba(220,220,220,1)",
-      data: [65, 59, 80, 81, 56, 55, 40]
+      labels: this.state.chartData.labels,
+      datasets: [
+        {
+          label: "Max",
+          fillColor: "rgba(220,220,220,0.2)",
+          strokeColor: "rgba(220,220,220,1)",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: []
+        }
+      ]
     };
     this.setState({
       [e.target.id]: e.target.value,
-      chartData: data
+      // chartData: data
     });
   }
 
