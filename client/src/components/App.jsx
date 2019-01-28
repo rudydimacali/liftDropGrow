@@ -3,6 +3,7 @@ import AddWorkSet from './AddWorkSet.jsx';
 import RenderDate from './RenderDate.jsx';
 import DateOptions from './DateOptions.jsx';
 import NavBar from './Navbar.jsx';
+import ProgressChart from './ProgressChart.jsx';
 const moment = require('moment');
 const $ = require('jquery');
 
@@ -121,11 +122,11 @@ class App extends React.Component {
       return (
         <div>
           <NavBar changePage={this.changePage} activePage={this.state.currentPage} />
+          <ProgressChart />
         </div>
       )
     }
   }
-
 }
 
 export default App;
