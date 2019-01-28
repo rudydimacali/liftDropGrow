@@ -2,6 +2,7 @@ import React from 'react';
 import AddWorkSet from './AddWorkSet.jsx';
 import RenderDate from './RenderDate.jsx';
 import DateOptions from './DateOptions.jsx';
+import NavBar from './Navbar.jsx';
 const moment = require('moment');
 const $ = require('jquery');
 
@@ -11,12 +12,13 @@ class App extends React.Component {
     this.state = {
       dateSelected: moment().format('MM-DD-YYYY'),
       workouts: [],
-      dateOptions: []
+      dateOptions: [],
+      currentPage: 'workouts'
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.getWorkouts = this.getWorkouts.bind(this);
     this.getDates = this.getDates.bind(this);
+    this.changePage = this.changePage.bind(this);
   }
 
   componentDidMount() {
@@ -74,41 +76,56 @@ class App extends React.Component {
     }
   }
 
-  handleSubmit(e) {
+  changePage(e) {
+    e.preventDefault();
+    this.setState({
+      currentPage: e.target.id
+    });
   }
 
   render() {
-    if (this.state.dateSelected === moment().format('MM-DD-YYYY')) {
+    if (this.state.currentPage === 'workouts') {
+      if (this.state.dateSelected === moment().format('MM-DD-YYYY')) {
+        return (
+          <div>
+            <NavBar changePage={this.changePage} activePage={this.state.currentPage} />
+            <form>
+              <div className="form-group">
+                <label htmlFor="dateSelected">Date</label>
+                <select className="form-control" id='dateSelected' onChange={this.handleChange}>
+                  <DateOptions dateArray={this.state.dateOptions} />
+                </select>
+              </div>
+            </form>
+            <RenderDate workoutArray={this.state.workouts} />
+            <AddWorkSet getWorkouts={this.getWorkouts} />
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            <NavBar changePage={this.changePage} activePage={this.state.currentPage} />
+            <form>
+              <div className="form-group">
+                <label htmlFor="dateSelected">Date</label>
+                <select className="form-control" id='dateSelected' onChange={this.handleChange}>
+                  <DateOptions dateArray={this.state.dateOptions} />
+                </select>
+              </div>
+            </form>
+            <RenderDate workoutArray={this.state.workouts} />
+          </div>
+        )
+      }
+    } else if (this.state.currentPage === 'progress') {
       return (
         <div>
-          <form>
-            <div class="form-group">
-              <label for="dateSelected">Date</label>
-              <select class="form-control" id='dateSelected' onChange={this.handleChange}>
-                <DateOptions dateArray={this.state.dateOptions} />
-              </select>
-            </div>
-          </form>
-          <RenderDate workoutArray={this.state.workouts} />
-          <AddWorkSet getWorkouts={this.getWorkouts} />
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <form>
-            <div class="form-group">
-              <label for="dateSelected">Date</label>
-              <select class="form-control" id='dateSelected' onChange={this.handleChange}>
-                <DateOptions dateArray={this.state.dateOptions} />
-              </select>
-            </div>
-          </form>
-          <RenderDate workoutArray={this.state.workouts} />
+          <NavBar changePage={this.changePage} activePage={this.state.currentPage} />
         </div>
       )
     }
   }
+
 }
 
 export default App;
