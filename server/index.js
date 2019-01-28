@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
 const PORT = 3000;
-const { createWorkoutName, findWorkouts, createWorkoutRecord, findWorkoutNames, findDates } = require('../database/postgres/index.js');
+const { createWorkoutName, findWorkouts, createWorkoutRecord, findWorkoutNames, findDates, getWorkoutProgress } = require('../database/postgres/index.js');
 
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
@@ -41,7 +41,6 @@ app.get('/api/workouts', (req, res) => {
 });
 
 app.post('/api/workouts', (req, res) => {
-  console.log(req.body);
   createWorkoutRecord(req.body, (err, success) => {
     if (err) {
       res.status(404).send(err);
@@ -50,6 +49,16 @@ app.post('/api/workouts', (req, res) => {
     }
   });
 });
+
+app.get('/api/progression', (req, res) => {
+  getWorkoutProgress(req.query.id, (err, workouts) => {
+    if (err) {
+      res.status(404).send(err);
+    } else {
+      res.status(200).send(workouts);
+    }
+  })
+})
 
 app.get('/api/dates', (req, res) => {
   findDates((err, dates) => {

@@ -25,6 +25,16 @@ const getWorkoutName = (id, cb) => {
   });
 };
 
+const getWorkoutProgress = (id, cb) => {
+  client.query(`SELECT main.*, workouts.name FROM main INNER JOIN workouts ON main.workoutid = workouts.id WHERE workoutid=${id}`, (err, data) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, data);
+    }
+  });
+}
+
 const createWorkoutName = (name, cb) => {
   client.query(`INSERT INTO workouts (name) VALUES ('${name}')`, (err, success) => {
     if (err) {
@@ -79,6 +89,7 @@ const findDates = (cb) => {
 };
 
 module.exports.findWorkouts = findWorkouts;
+module.exports.getWorkoutProgress = getWorkoutProgress;
 module.exports.getWorkoutId = getWorkoutId;
 module.exports.getWorkoutName = getWorkoutName;
 module.exports.createWorkoutName = createWorkoutName;
