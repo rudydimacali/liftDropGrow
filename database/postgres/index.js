@@ -2,7 +2,12 @@ const path = require('path');
 const { Pool, Client } = require('pg');
 const config = require('./config.js');
 
-const client = new Client(config.postgresConfig);
+// const client = new Client(config.postgresConfig);
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
 client.connect();
 
 const getWorkoutId = (name, cb) => {

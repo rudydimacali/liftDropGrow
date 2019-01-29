@@ -2,7 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
-const PORT = 3000;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
 const { createWorkoutName, findWorkouts, createWorkoutRecord, findWorkoutNames, findDates, getWorkoutProgress } = require('../database/postgres/index.js');
 
 app.use(morgan('tiny'));
@@ -70,6 +73,6 @@ app.get('/api/dates', (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+app.listen(port, () => {
   console.log(`listening on port ${PORT}`);
 });
