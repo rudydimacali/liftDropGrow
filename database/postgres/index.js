@@ -1,6 +1,6 @@
 const path = require('path');
 const { Pool, Client } = require('pg');
-const config = require('./config.js');
+// const config = require('./config.js');
 
 // const client = new Client(config.postgresConfig);
 const client = new Client({
