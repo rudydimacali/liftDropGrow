@@ -2,6 +2,10 @@
   "name": "liftDropGrow",
   "version": "1.0.0",
   "description": "Workout tracking webapp built on React &amp; PostgreSQL.",
+  "engines": {
+    "node": "10.14.2",
+    "npm": "6.5.0"
+  },
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
