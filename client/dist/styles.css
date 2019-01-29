@@ -1,0 +1,32 @@
+body {
+  padding: 25px;
+}
+
+form, table {
+  margin-top: 30px;
+  -webkit-box-shadow: 10px 10px 34px 7px rgba(0,0,0,0.16);
+  -moz-box-shadow: 10px 10px 34px 7px rgba(0,0,0,0.16);
+  box-shadow: 10px 10px 34px 7px rgba(0,0,0,0.16);
+}
+
+div.form-group, legend {
+  padding: 15px;
+}
+
+select {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+button {
+  margin-left: 5px;
+  margin-top: 25px;
+}
+
+.form-control, table, form {
+  margin: 0 auto;
+}
+
+.navbar-brand {
+  font-size: 22px;
+}
