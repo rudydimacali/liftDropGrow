@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const app = express();
 let port = process.env.PORT;
 if (port == null || port == "") {
@@ -8,7 +8,7 @@ if (port == null || port == "") {
 }
 const { createWorkoutName, findWorkouts, createWorkoutRecord, findWorkoutNames, findDates, getWorkoutProgress } = require('../database/postgres/index.js');
 
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../client/dist'));
