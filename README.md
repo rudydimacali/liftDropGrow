@@ -1,15 +1,17 @@
-# liftDropGrow
-> Workout tracking webapp built on React &amp; PostgreSQL.
->
-> *Built as a passion project due to my obsession with weightlifting!*
+# liftDropGrow #
 
-## Table of Contents
+## Summary ##
+  > Workout and progression tracking webapp built on React, Express, PostgreSQL, Bootstrap, and Chart.js.
+  >
+  > Having a shareable record of my personal progress in fitness will help keep me accountable, while also demonstrating my full-stack engineering ability!
 
-1. [Usage](#Usage)
-
-## Usage
-
+## How to Get Started ##
 > To start the app, run the following from the root directory:
 - npm install
 - npm run react-dev OR npm run react
 - npm start
+
+## Demo ##
+  > See it in action on mobile: https://youtu.be/yIsmrYUsy2g
+![alt text](https://i.imgur.com/nTD3l4Q.png)
+![alt text](https://i.imgur.com/tJisQ3a.png)
