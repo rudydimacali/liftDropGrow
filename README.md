@@ -13,5 +13,7 @@
 
 ## Demo ##
   > See it in action on mobile: https://youtu.be/yIsmrYUsy2g
-![alt text](https://i.imgur.com/nTD3l4Q.png)
-![alt text](https://i.imgur.com/tJisQ3a.png)
+  >
+  > Play with the app live: http://liftdropgrow.herokuapp.com
+  >
+  > <img src="https://i.imgur.com/nTD3l4Q.png" width="295" height="458"><img src="https://i.imgur.com/tJisQ3a.png" width="295" height="458">
